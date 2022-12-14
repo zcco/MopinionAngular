@@ -76,4 +76,4 @@ Instead of adding the forceParse script inline in this component, we call the fo
 ```
 
 ## Build
-Before build dont forget to change [id] to a usable deployment ID.
+Before build dont forget to change [id] on the index.html to a usable deployment ID.
