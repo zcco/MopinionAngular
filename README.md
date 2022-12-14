@@ -31,7 +31,7 @@ Complying with strict CSP guidelines does not allow for inline scripts. Implemen
 ```
 
 ```
-<!-- Calling load function - app.component.ts -->
+// Calling load function - app.component.ts
   ngAfterViewInit(): void {
     const mopinionScriptTag = document.getElementById('mopinion-script');
     if (mopinionScriptTag) {
@@ -52,3 +52,28 @@ Complying with strict CSP guidelines does not allow for inline scripts. Implemen
   }
 ```
 
+## Mopinion Component
+On different view components a mopinion component can be added. To represent this we have a Homepage and Content page component each with their owdn Mopinion component.
+
+```
+<!-- Mopinion component html -->
+<h2>Mopinion Form</h2>
+<div id="surveyContent"></div>
+```
+
+Instead of adding the forceParse script inline in this component, we call the forceParse function onInit of this component.
+```
+// Mopinion component typescript
+  ngOnInit(): void {
+    // Call forceParse
+    try {
+      // @ts-ignore
+      Pastease.forceParse();
+    }catch(err){
+      console.warn('Pastease could not parse. Please check if Pastease was loaded on the page.')
+    }
+  }
+```
+
+## Build
+Before build dont forget to change [id] to a usable deployment ID.
