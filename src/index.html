@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>MopinionTest</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+</head>
+<body>
+
+  <app-root></app-root>
+
+  <!-- ORIGINAL MOPINION CODE -->
+  <!-- Replace [id] with actual id -->
+  <!--
+    <script type="text/javascript">
+      (function(){
+        var id="[id]";
+        var js=document.createElement("script");
+        js.setAttribute("type","text/javascript");
+        js.setAttribute("src","//deploy.mopinion.com/js/pastease.js");
+        js.async=true;document.getElementsByTagName("head")[0].appendChild(js);
+        var t=setInterval(
+          function(){
+            try{Pastease.load(id);clearInterval(t)
+            }catch(e){}
+          },50)
+      })();
+    </script>
+    -->
+
+  <!-- REWRITTEN CODE - SAME RESULT WITHOUT HAVING INLINE CODE (CSP) -->
+  <!-- Pastease.load is done on init of app - see app.component.ts -->
+  <script id="mopinion-script" src="//deploy.mopinion.com/js/pastease.js" data-siteid="[id]" async defer></script>
+
+</body>
+</html>
